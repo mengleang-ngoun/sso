@@ -1,0 +1,10 @@
+{
+    "admin_pw": "Admin@123",
+    "city": "Austin",
+    "country_code": "US",
+    "email": "support@demoexample.gluu.org",
+    "hostname": "demoexample.gluu.org",
+    "ldap_pw": "Admin@123",
+    "org_name": "Gluu",
+    "state": "TX"
+}

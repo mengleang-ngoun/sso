@@ -1,0 +1,1 @@
+CURL_CA_BUNDLE="" flask --app main run --cert=cert.pem --key=key.pem

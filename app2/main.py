@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, session, url_for
 from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
@@ -10,15 +10,16 @@ oauth.init_app(app)
 oauth.register(
     'gluu',
     server_metadata_url='https://sso.csgov2.online/.well-known/openid-configuration',
-    client_kwargs={'scope': 'openid user_name view_driver_license_id'}
+    client_kwargs={'scope': 'openid user_name view_national_id_card'}
 )
 
 
 @app.route('/')
 def homepage():
     user = session.get('user')
+    if user is None:
+        return redirect("/login")
     return render_template('index.html', user=user)
-
 
 @app.route("/userinfo")
 def userinfo():

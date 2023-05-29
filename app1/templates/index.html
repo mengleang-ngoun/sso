@@ -1,8 +1,35 @@
 {% extends 'base.html' %} {% block content %}
 {% if user %}
-    {% for attribute in user %}
-        <h1>{user[attribute]}</h1>
-    {% endfor %}
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">User information</h5>
+                  <ul class="list-group">
+                    {% for attribute in user %}
+                    <li class="list-group-item">{{user[attribute]}}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to Gluu</h1>
+            <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-4 p-md-5 border rounded-3 bg-light">
+                <a href="/login" class="w-100 btn btn-lg btn-primary">Login with Gluu</a>
+                <hr class="my-4">
+                <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            </form>
+            </div>
+        </div>
+        </div>
 {% endif %}
-<h1>Hello</h1>
 {% endblock content %}

@@ -17,8 +17,9 @@ oauth.register(
 @app.route('/')
 def homepage():
     user = session.get('user')
+    if user is None:
+        return redirect("/login")
     return render_template('index.html', user=user)
-
 
 @app.route("/userinfo")
 def userinfo():
@@ -27,8 +28,7 @@ def userinfo():
         "https://sso.csgov2.online/oxauth/restv1/userinfo", token=token)
     resp.raise_for_status()
     profile = resp.json()
-    session["user"] = profile
-    return redirect("/")
+    return profile
 
 
 @app.route('/login')

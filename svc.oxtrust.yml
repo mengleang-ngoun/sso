@@ -40,7 +40,7 @@ services:
       - ./google-credentials.json:/etc/gluu/conf/google-credentials.json
       - ./sql_password:/etc/gluu/conf/sql_password
     mem_limit: 1536M
-    # restart: unless-stopped
+    restart: unless-stopped
     labels:
       - "SERVICE_NAME=oxtrust"
       - "SERVICE_8080_CHECK_HTTP=/identity/restv1/health-check"

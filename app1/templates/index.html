@@ -4,10 +4,10 @@
         <div class="row align-items-center g-lg-5 py-5">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">User information</h5>
+                  <h5 class="card-title">User information view_driver_license_id</h5>
                   <ul class="list-group">
                     {% for attribute in user %}
-                    <li class="list-group-item">{{user[attribute]}}</li>
+                    <li class="list-group-item"><b>{{attribute}}</b> {{user[attribute]}}</li>
                     {% endfor %}
                     </ul>
                 </div>
@@ -20,6 +20,7 @@
         <div class="row align-items-center g-lg-5 py-5">
             <div class="col-lg-7 text-center text-lg-start">
             <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to Gluu</h1>
+            <h2>view driver license id</h2>
             <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
             </div>
             <div class="col-md-10 mx-auto col-lg-5">

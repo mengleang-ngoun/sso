@@ -10,7 +10,7 @@ oauth.init_app(app)
 oauth.register(
     'gluu',
     server_metadata_url='https://sso.csgov2.online/.well-known/openid-configuration',
-    client_kwargs={'scope': 'openid user_name view_driver_license_id'}
+    client_kwargs={'scope': 'openid user_name'}
 )
 
 
@@ -24,10 +24,11 @@ def homepage():
 def userinfo():
     token = session['token']
     resp = oauth.gluu.get(
-        "https://sso.csgov2.online/oxauth/restv1/userinfo", token=token)
+        "https://sso.csgov2.online/jans-auth/restv1/userinfo", token=token)
     resp.raise_for_status()
     profile = resp.json()
-    return profile
+    session["user"] = profile
+    return redirect("/")
 
 
 @app.route('/login')
